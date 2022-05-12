@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- Créer une liste avec trois éléments (Pierre, Feuille, Ciseaux). Ajouter un bouton « Shifumi ! ». Lorsque l'on clique sur « Shifumi ! », choisir un élément au hasard (Pierre, Feuille ou Ciseaux). Le comparer à l'élément choisi par le joueur pour voir qui a gagné entre l'humain et la machine.
-Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcentage de victoire contre l'ordinateur. -->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/logoPurple.png">
     <title>Exercice javascript -Shifumi</title>
 </head>
 
 <body>
     <header>
-        <img src="assets/img/logoBlanc.png" alt="">
+        <a href="http://anthony-foret.fr" target="_blank" rel="noopener noreferrer"><img src="assets/img/logoBlanc.png"
+                alt=""></a>
         <h1>Shi Fu Mi!</h1>
     </header>
     <main>
         <div id="content">
+            <!-- Les modales -->
+            <!-- la welcome modale -->
             <div id="welcomeModal">
                 <div id="welcomeModalContent">
                     <span>Bonjour, bienvenue sur manufoumi.</span>
-                    <span>Vous pouvez consulter les regles du jeu dans "da rule"</span>
-                    <span>Vous pouvez consuler vos stats dans "da stats"</span>
-                    <span>Quand vous etes pret, cliquez sur commancer.</span>
-                    <button title="startGame" id="startGame" type="submit">Start!</button>
+                    <span>Consultez les regles du jeu dans "da rule"</span>
+                    <span>Consultez vos stats dans "da stats"</span>
+                    <span>Quand vous etes pret, cliquez sur commencer.</span>
+                    <button title="startGame" id="startGame" type="submit">Commencer</button>
                 </div>
             </div>
             <div id="mdlCnt">
+                <!-- La modale pour les régles du games -->
                 <div id="rule">
                     <span>Da rules</span>
                 </div>
-                <!-- La modal pour les régles du games -->
                 <div id="rulesModal">
                     <div id="modalContent">
                         <div><span id="closeModal">&times;</span></div>
@@ -40,10 +42,10 @@ Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcent
                         <span>Choisissez bien!</span>
                     </div>
                 </div>
+                <!-- La modale des stats -->
                 <div id="stats">
                     <span>Da stats!</span>
                 </div>
-                <!-- La modal pour les stats -->
                 <div id="statsModal">
                     <div id="modalStatsContent">
                         <span id="closeStatsModal">&times;</span>
@@ -54,10 +56,10 @@ Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcent
                             <span id="nbTotalGame">Nombre total de partie(s) : 0</span>
                             <span id="percentOfWin">Votre % de victoire :</span>
                         </div>
-
                     </div>
                 </div>
             </div>
+            <!-- La div avec les mains -->
             <div id="unNamedDiv">
                 <span id="textSpan">Choose your Destiny</span>
                 <form>
@@ -67,14 +69,15 @@ Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcent
                 </form>
             </div>
             <div id="insertCompChoose">
-
+                <!-- C'est ici que viennent s'afficher le texte & les 2 mains -->
             </div>
+            <!-- Les sons -->
             <audio id="saberSound" src="assets/img/sabre.mp3"></audio>
             <audio id="destinySound" src="assets/img/destiny.mp3"></audio>
         </div>
     </main>
     <footer>
-        <span>© Anthony, manusien.  2022</span> 
+        <span>© Anthony, manusien. 2022</span>
     </footer>
     <script src="assets/js/script.js"></script>
 </body>

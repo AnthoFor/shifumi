@@ -3,10 +3,14 @@
 *{
     margin:0px;padding:0px;box-sizing: border-box; font-size: 1.0rem;
 }
+/* reset : ok */
+
 @font-face {
     font-family: japFont;
     src: url(ZenzaiItacha.ttf);
 }
+/* Cette font est énorme. */
+
 body {
     width: 100vw;
     height: 95vh;
@@ -100,7 +104,7 @@ main {
     cursor: pointer;
 }
 #modalContent span {
-    font-size: 1.4rem;
+    font-size: 30px;
     padding: 1%;
     text-align: center;
 }
@@ -135,11 +139,11 @@ main {
   /* The Close Button */
 #closeStatsModal {
     color: #aaa;
+    font-size: 30px;
     font-weight: bold;
     justify-self:right;
     margin-right: 20px;
     cursor: pointer;
-    flex: 0.2;
     align-self: flex-end;
 }
 
@@ -166,12 +170,23 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+}
+#welcomeModalContent span {
+    font-size: 24px;
+    text-align: center;
 }
 #startGame {
     border: none;
     background-color: #d2691e;
     width: 80%;
+    font-family: japFont;
+    font-size: 22px;
+    height: 6vh;
     border-radius: 10px;
+    cursor: pointer;
+    padding-top: 0.5%;
+    margin-top: 3vh;
 }
 /* FIN DE SECTION MODAL */
 #unNamedDiv {
@@ -219,6 +234,7 @@ form {
 #insertCompChoose {
     flex: 0.8;
     display: flex;
+    padding-top: 7vh;
 }
 #resultText {
     text-align: center;
