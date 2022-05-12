@@ -31,8 +31,7 @@ function whichOneCompChoose() {
     return compChoice;
 }
 
-
-let choiceSelect = document.querySelectorAll('input');
+let choiceSelect = document.querySelectorAll('.pushImg');
 choiceSelect.forEach(element => {
     element.addEventListener('click', (event) => {
     let choosedOneByComp = whichOneCompChoose();
