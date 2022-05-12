@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Créer une liste avec trois éléments (Pierre, Feuille, Ciseaux). Ajouter un bouton « Shifumi ! ». Lorsque l'on clique sur « Shifumi ! », choisir un élément au hasard (Pierre, Feuille ou Ciseaux). Le comparer à l'élément choisi par le joueur pour voir qui a gagné entre l'humain et la machine.
+Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcentage de victoire contre l'ordinateur. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Partie 6 - Jquery? - Exercice javascript 1</title>
+</head>
+
+<body>
+    <header>
+        <div id="imgGroup">
+            <img src="assets/img/pierre.png" alt="">
+            <img src="assets/img/feuille.png" alt="">
+            <img src="assets/img/ciseaux.png" alt="">
+        </div>
+        <h1>Shi Fu Mi!</h1>
+    </header>
+    <main>
+        <div id="content">
+            <div id="unNamedDiv">
+                <form>
+                    <input title="pierre" id="pierre" value="" />
+                    <input title="feuille" id="feuille" value=""/>
+                    <input title="ciseaux" id="ciseaux" value=""/>
+                </form>
+            </div>
+            <div id="winOrLoose">
+                <span id="winCount">Nombre de victoire(s) : 0</span>
+                <span id="looseCount">Nombre de défaite(s) : 0</span>
+                <span id="nbTotalGame">Nombre total de partie(s) : 0</span>
+                <span id="percentOfWin">Votre % de victoire :</span>
+            </div>
+        </div>
+    
+    <div id="insertCompChoose">
+    </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

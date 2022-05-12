@@ -1,0 +1,175 @@
+*{
+    margin:0px;padding:0px;box-sizing: border-box; font-size: 1.1rem;
+}
+@font-face {
+    font-family: myFirstFont;
+    src: url(ZenzaiItacha.ttf);
+}
+
+body {
+    width: 100vw;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #d2691e;
+    background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
+    font-family: myFirstFont;
+}
+#imgGroup {
+    display: flex;
+}
+#imgGroup img {
+    max-height: 20vh;
+}
+h1 {
+    font-size: 3rem;
+    word-spacing: 4vw;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+#content {
+    width: 100vw;
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#unNamedDiv {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 15vh;
+}
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+#pierre, #feuille, #ciseaux {
+    max-height: 20vh;
+    border: none;
+    cursor: pointer;
+    
+}
+#pierre:focus, #feuille:focus, #ciseaux:focus {
+    caret-color: transparent;
+    border: none;
+    outline: none;
+}
+#pierre {
+    background: url('../img/pierre.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#feuille {
+    background: url('../img/feuille.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#ciseaux {
+    background: url('../img/ciseaux.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+#winOrLoose {
+    min-width: 510px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1vh;
+}
+
+#winCount, #looseCount, #nbTotalGame, #percentOfWin {
+    background-color: #d2691e;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+}
+
+.fromLeft {
+    position: absolute;
+    bottom: 3%;
+    right: 100%;
+    transition-duration: 0.4s;
+    animation-fill-mode: forwards;
+    animation-name: fromLeft, shake;
+    animation-delay: 0s, .5s;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes fromLeft {
+    from {right: 100%;}
+    to {right: 52%;}
+}
+.fromRight {
+    position: absolute;
+    bottom: 3%;
+    left: 100%;
+    animation-fill-mode: forwards;
+    animation-name: fromRight, shake;
+    animation-delay: 0s, .5s;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in-out;
+    
+}
+@keyframes fromRight {
+    from {left: 100%;}
+    to {left: 50%;}
+}
+#resultText {
+    font-size: 0;
+    font-family: myFirstFont;
+    animation: movingResult 0.4s ease-in-out 0.4s 1 normal forwards;
+}
+@keyframes movingResult {
+    from{font-size: 0;}
+    to{font-size: 2rem;}
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@media screen and (max-width:992px) {
+    #content {
+        width: 100vw;
+        display: flex;
+        justify-content: unset;
+        flex-direction: column;
+        align-items: center;
+    }
+    .fromLeft, .fromRight {
+        position: relative;
+    }
+    #unNamedDiv {
+        width: 100%;
+        max-width: unset;
+    }
+    #winOrLoose {
+        width: 100%;
+        max-width: unset;
+    }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Créer une liste avec trois éléments (Pierre, Feuille, Ciseaux). Ajouter un bouton « Shifumi ! ». Lorsque l'on clique sur « Shifumi ! », choisir un élément au hasard (Pierre, Feuille ou Ciseaux). Le comparer à l'élément choisi par le joueur pour voir qui a gagné entre l'humain et la machine.
+Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcentage de victoire contre l'ordinateur. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style2.css">
+    <title>Partie 6 - Jquery? - Exercice javascript 1</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/img/logoBlanc.png" alt="">
+        <h1>Shi Fu Mi!</h1>
+    </header>
+    <main>
+        <div id="content">
+            <div id="welcomeModal">
+                <div id="welcomeModalContent">
+                    <span>Bonjour, bienvenue sur manufoumi.</span>
+                    <span>Vous pouvez consulter les regles du jeu dans "da rule"</span>
+                    <span>Vous pouvez consuler vos stats dans "da stats"</span>
+                    <span>Quand vous etes pret, cliquez sur commancer.</span>
+                    <button title="startGame" id="startGame" type="submit">Start!</button>
+                </div>
+            </div>
+            <div id="mdlCnt">
+                <div id="rule">
+                    <span>Da rules</span>
+                </div>
+                <!-- La modal pour les régles du games -->
+                <div id="rulesModal">
+                    <div id="modalContent">
+                        <div><span id="closeModal">&times;</span></div>
+                        <span>Voici les rules :</span>
+                        <img src="assets/img/linguistique-jeu-1.jpg" alt="image des règles du jeu">
+                        <span>Les ciseaux battent la feuille qui bat la pierre qui bat les ciseaux!</span>
+                        <span>Choisissez bien!</span>
+                    </div>
+                </div>
+                <div id="stats">
+                    <span>Da stats!</span>
+                </div>
+                <!-- La modal pour les stats -->
+                <div id="statsModal">
+                    <div id="modalStatsContent">
+                        <span id="closeStatsModal">&times;</span>
+                        <div id="winOrLoose">
+                            <span>Vos stats :</span>
+                            <span id="winCount">Nombre de victoire(s) : 0</span>
+                            <span id="looseCount">Nombre de defaite(s) : 0</span>
+                            <span id="nbTotalGame">Nombre total de partie(s) : 0</span>
+                            <span id="percentOfWin">Votre % de victoire :</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="unNamedDiv">
+                <span id="textSpan">Choose your Destiny</span>
+                <form>
+                    <input title="pierre" id="pierre" value="" />
+                    <input title="feuille" id="feuille" value="" />
+                    <input title="ciseaux" id="ciseaux" value="" />
+                </form>
+            </div>
+            <div id="insertCompChoose">
+
+            </div>
+
+            <audio id="saberSound" src="assets/img/sabre.mp3"></audio>
+            <audio id="destinySound" src="assets/img/destiny.mp3"></audio>
+            <!-- <div id="winOrLoose">
+                <span id="winCount">Nombre de victoire(s) : 0</span>
+                <span id="looseCount">Nombre de defaite(s) : 0</span>
+                <span id="nbTotalGame">Nombre total de partie(s) : 0</span>
+                <span id="percentOfWin">Votre % de victoire :</span>
+            </div> -->
+        </div>
+    </main>
+    <footer>
+        <span>© Anthony, manusien.  2022</span> 
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
