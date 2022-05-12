@@ -30,7 +30,8 @@ function whichOneCompChoose() {
     }
     return compChoice;
 }
-
+// let choiceSelect = Array.from(document.getElementsByClassName('pushImg'));
+// console.log(choiceSelect);
 let choiceSelect = document.querySelectorAll('.pushImg');
 choiceSelect.forEach(element => {
     element.addEventListener('click', (event) => {
