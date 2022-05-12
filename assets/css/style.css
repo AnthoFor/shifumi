@@ -1,65 +1,195 @@
+/* MOBILE FIRST ;)) */
+
 *{
-    margin:0px;padding:0px;box-sizing: border-box; font-size: 1.1rem;
+    margin:0px;padding:0px;box-sizing: border-box; font-size: 1.0rem;
 }
 @font-face {
-    font-family: myFirstFont;
+    font-family: japFont;
     src: url(ZenzaiItacha.ttf);
 }
-
 body {
     width: 100vw;
+    height: 95vh;
+    overflow-y: hidden;
 }
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100%;
-    background: #d2691e;
-    background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
-    font-family: myFirstFont;
-}
-#imgGroup {
+    max-width: 100%;
+    height: 15%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
 }
-#imgGroup img {
-    max-height: 20vh;
+header h1 {
+    font-family: japFont;
+    font-size: 1.8rem;
+    word-spacing: 10vw;
 }
-h1 {
-    font-size: 3rem;
-    word-spacing: 4vw;
+header img {
+    position: absolute;
+    height: 8%;
+    left: 0%;
+    top: 2%;
 }
 main {
+    width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    flex-wrap: wrap;
-    width: 100vw;
 }
 #content {
-    width: 100vw;
-    height: 35vh;
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-family: japFont;
+}
+#rule, #stats {
+    flex: 0.2;
+    text-align: center;
+}
+#stats {
+    margin-bottom: 1vh;
+}
+#rule span, #stats span {
+    padding: 3px;
+    border: 1px solid #d2691e;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* SECTION MODAL */
+#mdlCnt {
     display: flex;
     justify-content: center;
+}
+/* MODAL ONE (REGLES) */
+#rulesModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+#modalContent {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    padding: 0% 3% 10% 3%;
+}
+  /* The Close Button */
+#closeModal {
+    color: #aaa;
+    float: right;
+    font-weight: bold;
+    justify-self:right;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#modalContent span {
+    font-size: 1.4rem;
+    padding: 1%;
+    text-align: center;
+}
+#modalContent img {
+    max-width: 100%;
+}
+/* MODAL 2 STATS */
+#statsModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+#modalStatsContent {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered*/
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    padding: 0% 3% 10% 3%;
+    display: flex;
+    flex-direction: column;
+}
+  /* The Close Button */
+#closeStatsModal {
+    color: #aaa;
+    font-weight: bold;
+    justify-self:right;
+    margin-right: 20px;
+    cursor: pointer;
+    flex: 0.2;
+    align-self: flex-end;
+}
+
+/* MODAL 3 WELCOME */
+#welcomeModal {
+    display: block; /* block by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+/* Modal Content/Box */
+#welcomeModalContent {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered*/
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    padding: 0% 3% 10% 3%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
+#startGame {
+    border: none;
+    background-color: #d2691e;
+    width: 80%;
+    border-radius: 10px;
+}
+/* FIN DE SECTION MODAL */
 #unNamedDiv {
+    flex: 0.7;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    height: 100%;
-    min-height: 15vh;
+    flex-direction: column;
+    align-items: center;
+}
+#textSpan {
+    font-size: 2.5rem;
 }
 form {
-    width: 100%;
     height: 100%;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: center;
 }
 #pierre, #feuille, #ciseaux {
-    max-height: 20vh;
+    width: 33%;
     border: none;
     cursor: pointer;
-    
 }
 #pierre:focus, #feuille:focus, #ciseaux:focus {
     caret-color: transparent;
@@ -81,29 +211,27 @@ form {
     background-size: contain;
     background-position: center;
 }
-#winOrLoose {
-    min-width: 510px;
-    width: 50%;
-    height: 100%;
+#insertCompChoose {
+    flex: 0.8;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1vh;
 }
-
-#winCount, #looseCount, #nbTotalGame, #percentOfWin {
-    background-color: #d2691e;
-    width: 300px;
+#resultText {
     text-align: center;
-    padding: 10px;
+    width: 100%;
+    height: auto;
+    font-size: 0;
+    font-family: japFont;
+    animation: movingResult 0.4s ease-in-out 0.4s 1 normal forwards;
 }
-
+@keyframes movingResult {
+    from{font-size: 0;}
+    to{font-size: 2rem;}
+}
 .fromLeft {
     position: absolute;
-    bottom: 3%;
     right: 100%;
-    transition-duration: 0.4s;
+    top: 67%;
+    max-height: 15%;
     animation-fill-mode: forwards;
     animation-name: fromLeft, shake;
     animation-delay: 0s, .5s;
@@ -116,8 +244,9 @@ form {
 }
 .fromRight {
     position: absolute;
-    bottom: 3%;
     left: 100%;
+    top: 67%;
+    max-height: 15%;
     animation-fill-mode: forwards;
     animation-name: fromRight, shake;
     animation-delay: 0s, .5s;
@@ -129,16 +258,6 @@ form {
     from {left: 100%;}
     to {left: 50%;}
 }
-#resultText {
-    font-size: 0;
-    font-family: myFirstFont;
-    animation: movingResult 0.4s ease-in-out 0.4s 1 normal forwards;
-}
-@keyframes movingResult {
-    from{font-size: 0;}
-    to{font-size: 2rem;}
-}
-
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -152,24 +271,37 @@ form {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+#winOrLoose {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: baseline;
+    width: 100%;
+}
+#winCount, #looseCount, #nbTotalGame, #percentOfWin {
+    font-family: japFont;
+    font-size: 1.2rem;
+    background-color: #d2691e;
+    width: 70%;
+    text-align: center;
+    border: 1px solid #ffffff;
+}
+audio {
+    height: 0px;
+    width: 0px;
+}
 
-@media screen and (max-width:992px) {
-    #content {
-        width: 100vw;
-        display: flex;
-        justify-content: unset;
-        flex-direction: column;
-        align-items: center;
-    }
-    .fromLeft, .fromRight {
-        position: relative;
-    }
-    #unNamedDiv {
-        width: 100%;
-        max-width: unset;
-    }
-    #winOrLoose {
-        width: 100%;
-        max-width: unset;
-    }
+footer {
+    position: relative;
+    top: 0%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(0deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
+}
+footer span {
+    font-size: 12px;
 }
