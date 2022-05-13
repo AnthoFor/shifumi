@@ -6,8 +6,21 @@ let numbTotalOfGame = 0;
 let shifuArray = ['pierre', 'feuille', 'ciseaux'];
 let humanWinRatio = 0;
 let winEgalOrLoose = '';
+let soundOnOrOff = 1;
 // UN CODE BIEN INDENTé = UN THIERRY-PAS-ENERVé
 // UN CODE BIEN COMMENTé = UN THIERRY RELAXé :)
+
+// fonction nommée de toggleSound ;)
+const toggleSound = () => {
+    soundChoice.classList.toggle('soundOff');
+    soundChoice.classList.toggle('soundOn');
+    if (soundChoice.classList.contains('soundOff')) {
+        soundOnOrOff = 0;
+    } else {
+        soundOnOrOff = 1;
+    }
+}
+soundChoice.addEventListener('click', toggleSound);
 
 //renvoi un nombre entier aléatoire entre 1 et 3
 function randomFrom0to3() {
@@ -80,9 +93,10 @@ choiceSelect.forEach(element => {
         `;
         //Envoi du son sabre lors de la "colision"
         let saberSound = document.getElementById('saberSound');
+        if (soundOnOrOff == 1) {
         setTimeout(() => {
             saberSound.play();
-        }, 300);
+        }, 300);}
     });
 });
 
