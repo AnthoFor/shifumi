@@ -110,7 +110,7 @@ choiceSelect.forEach(element => {
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         }
         // resolution du bug d'affichage des stats lorsque humanWinCount = 1 et que numbTotalOfGame == 1 avec cette condition
-        if (humanWinCount == 1 && numbTotalOfGame == 1) {
+        if (humanWinCount == numbTotalOfGame) {
             humanWinRatio = 100;
             percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(3)} %`
         } else {
