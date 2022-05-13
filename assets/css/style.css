@@ -78,8 +78,8 @@ main {
 
 #rule span, #stats span {
     padding: 3px;
-    border: 1px solid #EC202E;
-    border-radius: 10px;
+    /* border: 1px solid #EC202E; */
+    /* border-radius: 10px; */
     font-size: 1.1rem;
     cursor: pointer;
     font-family: japFont;
@@ -389,6 +389,7 @@ footer {
 }
 footer span {
     font-size: 12px;
+    padding-bottom: 1%;
 }
 
 @media screen and (min-width: 992px) {
