@@ -1,5 +1,3 @@
-//Créer une liste avec trois éléments (Pierre, Feuille, Ciseaux). Ajouter un bouton « Shifumi ! ». Lorsque l'on clique sur « Shifumi ! », choisir un élément au hasard (Pierre, Feuille ou Ciseaux). Le comparer à l'élément choisi par le joueur pour voir qui a gagné entre l'humain et la machine.
-//Bonus : Ajouter un compteur de victoires et de défaites et afficher le pourcentage de victoire contre l'ordinateur.
 let humanWinCount = 0;
 let humanLooseCount = 0;
 let numbTotalOfGame = 0;
@@ -20,6 +18,7 @@ const toggleSound = () => {
         soundOnOrOff = 1;
     }
 }
+//on click on eteint le son ;)
 soundChoice.addEventListener('click', toggleSound);
 
 //renvoi un nombre entier aléatoire entre 1 et 3
@@ -45,17 +44,20 @@ function whichOneCompChoose() {
     }
     return compChoice;
 }
-// let choiceSelect = Array.from(document.getElementsByClassName('pushImg'));
-// console.log(choiceSelect);
 
-let choiceSelect = document.querySelectorAll('.pushImg');
+// let choiceSelect = Array.from(document.getElementsByClassName('pushImg'));
+// itérer un ByClassName comme un queryselectorAll, bon tip.
+
 // Récupération de l'id de chaque class .pushImg afin de déduire le choix utilisateur
+let choiceSelect = document.querySelectorAll('.pushImg');
+
 choiceSelect.forEach(element => {
     element.addEventListener('click', (event) => {
-        let choosedOneByComp = whichOneCompChoose();
-        let choosedByHuman = event.target.id;
-        numbTotalOfGame += 1; // Maj du nombre total de parties
+        let choosedOneByComp = whichOneCompChoose();    //utilisation de la fonction pour le choix de l'ordi
+        let choosedByHuman = event.target.id;           //affectation de l'id du span (pierre...) pour "comprendre" le choix du joueur
+        numbTotalOfGame += 1;                           // Maj du nombre total de parties
         nbTotalGame.innerHTML = `Nombre total de partie(s) : ${numbTotalOfGame}`;
+        //Grosse condition pour savoir si c'est une égalité, une victoire ou une défaite
         if (choosedByHuman == choosedOneByComp) {
             winEgalOrLoose = 'Egalite!';
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'feuille') {
@@ -107,15 +109,21 @@ choiceSelect.forEach(element => {
                 }, 800);}
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         }
+        // resolution du bug d'affichage des stats lorsque humanWinCount = 1 et que numbTotalOfGame == 1 avec cette condition
+        if (humanWinCount == 1 && numbTotalOfGame == 1) {
+            humanWinRatio = 100;
+            percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(3)} %`
+        } else {
         humanWinRatio = (humanWinCount / numbTotalOfGame) * 100;
         percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(2)} %`; //Raccourci à 4 charactères
+        }
         //ajout des 2 choix - (image) (ordinateur-fromRight & humain-fromLeft) - dans la div "insertCompChoose"
         insertCompChoose.innerHTML = `
         <span id="resultText">${winEgalOrLoose}</span>
         <img src="assets/img/${choosedOneByComp}.png" class="fromRight" alt="Hands choosen by computer">
         <img src="assets/img/${choosedByHuman}.png" class="fromLeft" alt="Hands Choosen by human">
         `;
-        //Envoi du son sabre lors de la "colision"
+        //Envoi du son sabre lors de la "colision" avec un delay de 300ms
         if (soundOnOrOff == 1) {
         setTimeout(() => {
             saberSound.play();
