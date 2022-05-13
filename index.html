@@ -11,18 +11,26 @@
 
 <body>
     <header>
-        <a href="http://anthony-foret.fr" target="_blank" rel="noopener noreferrer"><img src="assets/img/logoBlanc.png"
+        <a href="http://anthony-foret.fr" title="url" target="_blank" rel="noopener noreferrer"><img src="assets/img/logoBlanc.png"
                 alt=""></a>
         <h1>Shi Fu Mi!</h1>
     </header>
     <main>
+        <div id="butDiv">
+            <div id="rule">
+                <span>Da rules</span>
+            </div>
+            <div id="stats">
+                <span>Da stats!</span>
+            </div>
+        </div>        
         <div id="content">
             <!-- Les modales -->
             <!-- la welcome modale -->
             <div id="welcomeModal">
                 <div id="welcomeModalContent">
                     <span>Bonjour, bienvenue sur manufoumi.</span>
-                    <span>Consultez les regles du jeu dans "da rule"</span>
+                    <span>Consultez les regles du jeu dans "da rules"</span>
                     <span>Consultez vos stats dans "da stats"</span>
                     <span>Quand vous etes pret, cliquez sur commencer.</span>
                     <button title="startGame" id="startGame" type="submit">Commencer</button>
@@ -30,9 +38,6 @@
             </div>
             <div id="mdlCnt">
                 <!-- La modale pour les régles du games -->
-                <div id="rule">
-                    <span>Da rules</span>
-                </div>
                 <div id="rulesModal">
                     <div id="modalContent">
                         <div><span id="closeModal">&times;</span></div>
@@ -43,14 +48,12 @@
                     </div>
                 </div>
                 <!-- La modale des stats -->
-                <div id="stats">
-                    <span>Da stats!</span>
-                </div>
+                
                 <div id="statsModal">
                     <div id="modalStatsContent">
                         <span id="closeStatsModal">&times;</span>
                         <div id="winOrLoose">
-                            <span>Vos stats :</span>
+                            <h2>Vos stats :</h2>
                             <span id="winCount">Nombre de victoire(s) : 0</span>
                             <span id="looseCount">Nombre de defaite(s) : 0</span>
                             <span id="nbTotalGame">Nombre total de partie(s) : 0</span>
