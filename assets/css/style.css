@@ -152,7 +152,9 @@ main {
     cursor: pointer;
     align-self: flex-end;
 }
-
+#winOrLoose h2 {
+    font-weight: normal;
+}
 /* MODAL 3 WELCOME */
 #welcomeModal {
     display: block; /* block by default */
