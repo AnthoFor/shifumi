@@ -61,26 +61,50 @@ choiceSelect.forEach(element => {
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'feuille') {
             humanLooseCount += 1;
             winEgalOrLoose = 'Perdu :(';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    looseSound.play();
+                }, 800);}
             looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'ciseaux') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    victorySound.play();
+                }, 800);}
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         } else if (choosedByHuman == 'feuille' && choosedOneByComp == 'pierre') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    victorySound.play();
+                }, 800);}
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         } else if (choosedByHuman == 'feuille' && choosedOneByComp == 'ciseaux') {
             humanLooseCount += 1;
             winEgalOrLoose = 'Perdu :(';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    looseSound.play();
+                }, 800);}
             looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
         } else if (choosedByHuman == 'ciseaux' && choosedOneByComp == 'pierre') {
             humanLooseCount += 1;
             winEgalOrLoose = 'Perdu :(';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    looseSound.play();
+                }, 800);}
             looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
         } else if (choosedByHuman == 'ciseaux' && choosedOneByComp == 'feuille') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            if (soundOnOrOff == 1) {
+                setTimeout(() => {
+                    victorySound.play();
+                }, 800);}
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         }
         humanWinRatio = (humanWinCount / numbTotalOfGame) * 100;
@@ -92,7 +116,6 @@ choiceSelect.forEach(element => {
         <img src="assets/img/${choosedByHuman}.png" class="fromLeft" alt="Hands Choosen by human">
         `;
         //Envoi du son sabre lors de la "colision"
-        let saberSound = document.getElementById('saberSound');
         if (soundOnOrOff == 1) {
         setTimeout(() => {
             saberSound.play();
