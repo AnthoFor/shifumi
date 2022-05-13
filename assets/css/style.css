@@ -23,7 +23,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
+    background: linear-gradient(180deg,#fede47 0%, #eb132d 75%, #ffffff 100%);
+    /* background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%); */
 }
 header h1 {
     font-family: japFont;
@@ -35,6 +36,13 @@ header img {
     height: 8%;
     left: 0%;
     top: 2%;
+}
+#mklogo {
+    position: absolute;
+    height: 8%;
+    top: 2%;
+    left: unset;
+    right: 2%;
 }
 main {
     width: 100%;
@@ -348,7 +356,8 @@ footer {
     justify-content: center;
     align-items: flex-end;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: linear-gradient(0deg,#d2691e 0%, #d2691e 25%, #ffffff 100%);
+    /* background: linear-gradient(0deg,#d2691e 0%, #d2691e 25%, #ffffff 100%); */
+    background: linear-gradient(0deg,#fede47 0%, #eb132d 75%, #ffffff 100%);
 }
 footer span {
     font-size: 12px;
