@@ -147,6 +147,12 @@ closeStatsModal.addEventListener('click', () => {
 startGame.addEventListener('click', () => {
     welcomeModal.style.display = "none";
     destinySound.play();
+    pierre.classList.add('fromTop');
+    feuille.classList.add('fromTop');
+    ciseaux.classList.add('fromTop');
+    rule.classList.add('fromScale0');
+    sound.classList.add('fromScale0');
+    stats.classList.add('fromScale0');
 })
 
 // window.addEventListener("DOMContentLoaded", (event) => {
