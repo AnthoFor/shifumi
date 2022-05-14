@@ -120,8 +120,8 @@ choiceSelect.forEach(element => {
         //ajout des 2 choix - (image) (ordinateur-fromRight & humain-fromLeft) - dans la div "insertCompChoose"
         insertCompChoose.innerHTML = `
         <span id="resultText">${winEgalOrLoose}</span>
+        <img src="assets/img/${choosedByHuman}.png" class="humanChoose" alt="Hands Choosen by human">
         <img src="assets/img/${choosedOneByComp}.png" class="fromRight" alt="Hands choosen by computer">
-        <img src="assets/img/${choosedByHuman}.png" class="fromLeft" alt="Hands Choosen by human">
         `;
         //Envoi du son sabre lors de la "colision" avec un delay de 300ms
         if (soundOnOrOff == 1) {
