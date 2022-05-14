@@ -68,7 +68,7 @@ main {
     align-items: flex-end;
     position: relative;
     transform: scale(0);
-    animation-delay: 1.2s;
+    animation-delay: 1.6s;
     animation-timing-function: ease-in-out;
 }
 
@@ -241,6 +241,7 @@ main {
     align-items: center;
 }
 #textSpan {
+    transform: scale(0);
     font-size: 2.5rem;
 }
 #handsChoice {
@@ -261,6 +262,7 @@ main {
     background: url('../img/pierre.png') no-repeat;
     background-size: contain;
     background-position: center;
+    animation-delay: 0.4s;
 }
 #feuille {
     top: -700%;
@@ -268,7 +270,7 @@ main {
     background: url('../img/feuille.png') no-repeat;
     background-size: contain;
     background-position: center;
-    animation-delay: 0.4s;
+    animation-delay: 0.8s;
 }
 #ciseaux {
     top: -700%;
@@ -276,7 +278,7 @@ main {
     background: url('../img/ciseaux.png') no-repeat;
     background-size: contain;
     background-position: center;
-    animation-delay: 0.8s;
+    animation-delay: 1.2s;
 }
 .fromTop {
     animation: fromTop 0.4s ease-in-out 0s 1 normal forwards;
@@ -300,11 +302,16 @@ main {
     flex-wrap: wrap;
     padding-top: 5vh;
     overflow: hidden;
+    background-image: url(../img/mkArena.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
 }
 #resultText {
     text-align: center;
     width: 100%;
     transform: scale(0);
+    color: rgba(255, 255, 255, 0.616);
     padding-top: 2vh;
     font-family: japFont;
     font-size: 45px;
@@ -319,6 +326,7 @@ main {
 .fromRight {
     position: relative;
     max-height: 40%;
+    bottom: 4vh;
     animation-fill-mode: forwards;
     animation-name: fromRight, shake;
     animation-delay: 0s, .9s;
@@ -329,6 +337,7 @@ main {
 .humanChoose {
     position: relative;
     left: 0%;
+    bottom: 4vh;
     max-height: 40%;
     animation-fill-mode: forwards;
     animation-name: fastScale, shake;
@@ -394,7 +403,7 @@ footer {
 }
 footer span {
     font-size: 12px;
-    padding-bottom: 3%;
+    padding-bottom: 20px;
     color: white;
 }
 footer a {

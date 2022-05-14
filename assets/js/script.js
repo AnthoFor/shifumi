@@ -153,6 +153,7 @@ startGame.addEventListener('click', () => {
     rule.classList.add('fromScale0');
     sound.classList.add('fromScale0');
     stats.classList.add('fromScale0');
+    textSpan.classList.add('fromScale0');
 })
 
 // window.addEventListener("DOMContentLoaded", (event) => {
