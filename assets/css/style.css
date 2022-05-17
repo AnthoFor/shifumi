@@ -6,7 +6,7 @@
 /* Cette font est énorme. */
 @font-face {
     font-family: japFont;
-    src: url(ZenzaiItacha.ttf);
+    src: url(Karate.ttf);
 }
 
 /* One page complete */
@@ -92,7 +92,7 @@ main {
 .soundOn {
     width: 100%;
     height: 100%;
-    background-image: url(../img/soundOn.png);
+    background-image: url(../img/soundOn.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -100,7 +100,7 @@ main {
 .soundOff {
     width: 100%;
     height: 100%;
-    background-image: url(../img/soundOff.png);
+    background-image: url(../img/soundOff.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -374,7 +374,7 @@ main {
     justify-self: baseline;
     width: 100%;
 }
-#winCount, #looseCount, #nbTotalGame, #percentOfWin {
+#winCount, #looseCount, #nbTotalGame, #percentOfWin, #resetStats {
     font-family: japFont;
     font-size: 1.2rem;
     background-color: #EC202E;
@@ -382,6 +382,12 @@ main {
     width: 70%;
     text-align: center;
     border: 1px solid #ffffff;
+}
+#resetStats {
+    margin-top: 2vh;
+}
+#resetStats:hover {
+    cursor: pointer;
 }
 audio {
     height: 0px;

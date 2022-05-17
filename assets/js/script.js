@@ -155,7 +155,16 @@ startGame.addEventListener('click', () => {
     stats.classList.add('fromScale0');
     textSpan.classList.add('fromScale0');
 })
-
+resetStats.addEventListener('click', () => {
+    humanWinCount = 0;
+    humanLooseCount = 0;
+    numbTotalOfGame = 0;
+    humanWinRatio = 0;
+    winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
+    looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
+    nbTotalGame.innerHTML = `Nombre total de partie(s) : ${numbTotalOfGame}`;
+    percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(3)} %`
+})
 // window.addEventListener("DOMContentLoaded", (event) => {
 
 // })
