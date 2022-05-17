@@ -1,8 +1,7 @@
 /* MOBILE FIRST ;)) */
-*{
-    margin:0px;padding:0px;box-sizing: border-box; font-size: 1.0rem;
-}
+*{margin:0px;padding:0px;box-sizing: border-box; font-size: 1.0rem;font-family: Verdana, Geneva, Tahoma, sans-serif;}
 /* reset : ok */
+
 /* Cette font est énorme. */
 @font-face {
     font-family: japFont;
@@ -29,9 +28,11 @@ header {
     /* background: linear-gradient(180deg,#d2691e 0%, #d2691e 25%, #ffffff 100%); */
 }
 header h1 {
-    font-family: japFont;
     font-size: 1.8rem;
     word-spacing: 10vw;
+}
+.fontSpe {
+    font-family: japFont;
 }
 
 #mklogo {
@@ -53,7 +54,6 @@ main {
     display: flex;
     flex-direction: column;
     flex: 1;
-    font-family: japFont;
 }
 #butDiv {
     display: flex;
@@ -74,11 +74,8 @@ main {
 
 #rule span, #stats span {
     padding: 3px;
-    /* border: 1px solid #EC202E; */
-    /* border-radius: 10px; */
     font-size: 1.5rem;
     cursor: pointer;
-    font-family: japFont;
 }
 #sound{
     display: flex;
@@ -375,7 +372,6 @@ main {
     width: 100%;
 }
 #winCount, #looseCount, #nbTotalGame, #percentOfWin, #resetStats {
-    font-family: japFont;
     font-size: 1.2rem;
     background-color: #EC202E;
     color: white;
