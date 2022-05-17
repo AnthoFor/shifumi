@@ -378,6 +378,7 @@ main {
     width: 70%;
     text-align: center;
     border: 1px solid #ffffff;
+    padding: 1%;
 }
 #resetStats {
     margin-top: 2vh;
