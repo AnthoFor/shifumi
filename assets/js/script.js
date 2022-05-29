@@ -5,9 +5,14 @@ let shifuArray = ['pierre', 'feuille', 'ciseaux'];
 let humanWinRatio = 0;
 let winEgalOrLoose = '';
 let soundOnOrOff = 1;
+playerBarGreen.style.width = '100%';
+computerBarRed.style.width = '0%';
 // UN CODE BIEN INDENTé = UN THIERRY-PAS-ENERVé
 // UN CODE BIEN COMMENTé = UN THIERRY RELAXé :)
 
+// calcul de la hauteur du playzone, et ajustement de la hauteur des barres.
+fromXPlayZone = document.getElementById('insertCompChoose').getBoundingClientRect().top;
+lifeBar.style.top = fromXPlayZone + 4 +'px';
 // fonction nommée de toggleSound ;)
 const toggleSound = () => {
     soundChoice.classList.toggle('soundOff');
@@ -62,7 +67,10 @@ choiceSelect.forEach(element => {
             winEgalOrLoose = 'Egalite!';
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'feuille') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu :(';
+            winEgalOrLoose = 'Perdu';
+            setTimeout(() => {
+                removeLifeFromPlayer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     looseSound.play();
@@ -71,6 +79,9 @@ choiceSelect.forEach(element => {
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'ciseaux') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            setTimeout(() => {
+                removeLifeFromComputer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     victorySound.play();
@@ -79,6 +90,9 @@ choiceSelect.forEach(element => {
         } else if (choosedByHuman == 'feuille' && choosedOneByComp == 'pierre') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            setTimeout(() => {
+                removeLifeFromComputer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     victorySound.play();
@@ -86,7 +100,10 @@ choiceSelect.forEach(element => {
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         } else if (choosedByHuman == 'feuille' && choosedOneByComp == 'ciseaux') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu :(';
+            winEgalOrLoose = 'Perdu';
+            setTimeout(() => {
+                removeLifeFromPlayer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     looseSound.play();
@@ -94,7 +111,10 @@ choiceSelect.forEach(element => {
             looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
         } else if (choosedByHuman == 'ciseaux' && choosedOneByComp == 'pierre') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu :(';
+            winEgalOrLoose = 'Perdu';
+            setTimeout(() => {
+                removeLifeFromPlayer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     looseSound.play();
@@ -103,6 +123,9 @@ choiceSelect.forEach(element => {
         } else if (choosedByHuman == 'ciseaux' && choosedOneByComp == 'feuille') {
             humanWinCount += 1;
             winEgalOrLoose = 'Victoire!';
+            setTimeout(() => {
+                removeLifeFromComputer();
+            },800);
             if (soundOnOrOff == 1) {
                 setTimeout(() => {
                     victorySound.play();
@@ -118,16 +141,31 @@ choiceSelect.forEach(element => {
         percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(2)} %`; //Raccourci à 4 charactères
         }
         //ajout des 2 choix - (image) (ordinateur-fromRight & humain-fromLeft) - dans la div "insertCompChoose"
-        insertCompChoose.innerHTML = `
+        insertCompChoose2.innerHTML = `
         <span id="resultText">${winEgalOrLoose}</span>
         <img src="assets/img/${choosedByHuman}.png" class="humanChoose" alt="Hands Choosen by human">
         <img src="assets/img/${choosedOneByComp}.png" class="fromRight" alt="Hands choosen by computer">
         `;
         //Envoi du son sabre lors de la "colision" avec un delay de 300ms
         if (soundOnOrOff == 1) {
+            setTimeout(() => {
+                saberSound.play();
+            }, 300);}
+        // Check du niveau de vie du joueur ou de l'ordinateur
         setTimeout(() => {
-            saberSound.play();
-        }, 300);}
+            if (playerBarGreen.style.width == '0%') {
+                finalModal.style.display = 'block';
+                insertContentFinalModal.innerHTML = `<span class="fontSpe">Vous avez perdu, vous aurez peut être plus de 
+                chance la prochaine fois! </span>`;
+                
+            }
+            if (computerBarRed.style.width == '100%') {
+                finalModal.style.display = 'block';
+                insertContentFinalModal.innerHTML = `<span class="fontSpe">Félicitations! Vous avez battu l'ordinateur!</span>`;
+            }
+        }, 1500)  
+        
+        
     });
 });
 
@@ -145,15 +183,22 @@ closeStatsModal.addEventListener('click', () => {
     statsModal.style.display = "none";
 })
 startGame.addEventListener('click', () => {
-    welcomeModal.style.display = "none";
-    destinySound.play();
-    pierre.classList.add('fromTop');
-    feuille.classList.add('fromTop');
-    ciseaux.classList.add('fromTop');
-    rule.classList.add('fromScale0');
-    sound.classList.add('fromScale0');
-    stats.classList.add('fromScale0');
-    textSpan.classList.add('fromScale0');
+    let choosedUserName = userNameInput.value
+    if (choosedUserName != '') {
+        welcomeModal.style.display = "none";
+        destinySound.play();
+        pierre.classList.add('fromTop');
+        feuille.classList.add('fromTop');
+        ciseaux.classList.add('fromTop');
+        rule.classList.add('fromScale0');
+        sound.classList.add('fromScale0');
+        stats.classList.add('fromScale0');
+        textSpan.classList.add('fromScale0');
+        lifeBar.classList.add('fromScale0');
+        insertUserNameHere.innerHTML = `${choosedUserName}`;
+    } else {
+        alert('merci de renseigner un pseudo... ;)')
+    }  
 })
 resetStats.addEventListener('click', () => {
     humanWinCount = 0;
@@ -165,6 +210,64 @@ resetStats.addEventListener('click', () => {
     nbTotalGame.innerHTML = `Nombre total de partie(s) : ${numbTotalOfGame}`;
     percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(3)} %`
 })
+//quand je close la final modal, alors remet les barres a 0
+closeFinalModal.addEventListener('click', () => {
+    finalModal.style.display = 'none';
+    resetBar();
+})
 // window.addEventListener("DOMContentLoaded", (event) => {
 
 // })
+
+removeLifeFromPlayer = () => {
+    if (playerBarGreen.style.width == '100%') {
+        playerBarGreen.style.width = '90%';
+    } else if (playerBarGreen.style.width == '90%') {
+        playerBarGreen.style.width = '80%';
+    } else if (playerBarGreen.style.width == '80%') {
+        playerBarGreen.style.width = '70%';
+    } else if (playerBarGreen.style.width == '70%') {
+        playerBarGreen.style.width = '60%';
+    } else if (playerBarGreen.style.width == '60%') {
+        playerBarGreen.style.width = '50%';
+    } else if (playerBarGreen.style.width == '50%') {
+        playerBarGreen.style.width = '40%';
+    } else if (playerBarGreen.style.width == '40%') {
+        playerBarGreen.style.width = '30%';
+    } else if (playerBarGreen.style.width == '30%') {
+        playerBarGreen.style.width = '20%';
+    } else if (playerBarGreen.style.width == '20%') {
+        playerBarGreen.style.width = '10%';
+    } else if (playerBarGreen.style.width == '10%') {
+        playerBarGreen.style.width = '0%';
+    }
+}
+removeLifeFromComputer = () => {
+    if (computerBarRed.style.width == '0%') {
+        computerBarRed.style.width = '10%';
+    } else if (computerBarRed.style.width == '10%') {
+        computerBarRed.style.width = '20%';
+    } else if (computerBarRed.style.width == '20%') {
+        computerBarRed.style.width = '30%';
+    } else if (computerBarRed.style.width == '30%') {
+        computerBarRed.style.width = '40%';
+    } else if (computerBarRed.style.width == '40%') {
+        computerBarRed.style.width = '50%';
+    } else if (computerBarRed.style.width == '50%') {
+        computerBarRed.style.width = '60%';
+    } else if (computerBarRed.style.width == '60%') {
+        computerBarRed.style.width = '70%';
+    } else if (computerBarRed.style.width == '70%') {
+        computerBarRed.style.width = '80%';
+    } else if (computerBarRed.style.width == '80%') {
+        computerBarRed.style.width = '90%';
+    } else if (computerBarRed.style.width == '90%') {
+        computerBarRed.style.width = '100%';
+    }
+}
+
+resetBar = () => {
+    computerBarRed.style.width = '0%';
+    playerBarGreen.style.width = '100%';
+    finalModal.style.display = 'none';
+}
