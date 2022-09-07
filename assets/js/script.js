@@ -7,8 +7,6 @@ let winEgalOrLoose = '';
 let soundOnOrOff = 1;
 playerBarGreen.style.width = '100%';
 computerBarRed.style.width = '0%';
-// UN CODE BIEN INDENTé = UN THIERRY-PAS-ENERVé
-// UN CODE BIEN COMMENTé = UN THIERRY RELAXé :)
 
 // calcul de la hauteur du playzone, et ajustement de la hauteur des barres.
 fromXPlayZone = document.getElementById('insertCompChoose').getBoundingClientRect().top;
@@ -23,6 +21,7 @@ const toggleSound = () => {
         soundOnOrOff = 1;
     }
 }
+
 //on click on eteint le son ;)
 soundChoice.addEventListener('click', toggleSound);
 
@@ -132,6 +131,8 @@ choiceSelect.forEach(element => {
                 }, 800);}
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         }
+        // FIN DE LA CONDITION PRINCIPALE
+
         // resolution du bug d'affichage des stats lorsque humanWinCount = 1 et que numbTotalOfGame == 1 avec cette condition
         if (humanWinCount == numbTotalOfGame) {
             humanWinRatio = 100;
@@ -140,17 +141,20 @@ choiceSelect.forEach(element => {
         humanWinRatio = (humanWinCount / numbTotalOfGame) * 100;
         percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(2)} %`; //Raccourci à 4 charactères
         }
+
         //ajout des 2 choix - (image) (ordinateur-fromRight & humain-fromLeft) - dans la div "insertCompChoose"
         insertCompChoose2.innerHTML = `
         <span id="resultText">${winEgalOrLoose}</span>
         <img src="assets/img/${choosedByHuman}.png" class="humanChoose" alt="Hands Choosen by human">
         <img src="assets/img/${choosedOneByComp}.png" class="fromRight" alt="Hands choosen by computer">
         `;
+
         //Envoi du son sabre lors de la "colision" avec un delay de 300ms
         if (soundOnOrOff == 1) {
             setTimeout(() => {
                 saberSound.play();
             }, 300);}
+
         // Check du niveau de vie du joueur ou de l'ordinateur
         setTimeout(() => {
             if (playerBarGreen.style.width == '0%') {
@@ -161,10 +165,9 @@ choiceSelect.forEach(element => {
             }
             if (computerBarRed.style.width == '100%') {
                 finalModal.style.display = 'block';
-                insertContentFinalModal.innerHTML = `<span class="fontSpe">Félicitations! Vous avez battu l'ordinateur!</span>`;
+                insertContentFinalModal.innerHTML = `<span class="fontSpe">Felicitations! Vous avez battu l'ordinateur!</span>`;
             }
         }, 1500)  
-        
         
     });
 });
@@ -182,6 +185,8 @@ stats.addEventListener('click', () => {
 closeStatsModal.addEventListener('click', () => {
     statsModal.style.display = "none";
 })
+
+// Création du tableau de jeu progressivement
 startGame.addEventListener('click', () => {
     let choosedUserName = userNameInput.value
     if (choosedUserName != '') {
@@ -200,6 +205,8 @@ startGame.addEventListener('click', () => {
         alert('merci de renseigner un pseudo... ;)')
     }  
 })
+
+// Remise à 0 des stats
 resetStats.addEventListener('click', () => {
     humanWinCount = 0;
     humanLooseCount = 0;
@@ -210,11 +217,13 @@ resetStats.addEventListener('click', () => {
     nbTotalGame.innerHTML = `Nombre total de partie(s) : ${numbTotalOfGame}`;
     percentOfWin.innerHTML = `Votre % de victoire : ${humanWinRatio.toPrecision(3)} %`
 })
+
 //quand je close la final modal, alors remet les barres a 0
 closeFinalModal.addEventListener('click', () => {
     finalModal.style.display = 'none';
     resetBar();
 })
+
 // window.addEventListener("DOMContentLoaded", (event) => {
 
 // })
@@ -265,7 +274,7 @@ removeLifeFromComputer = () => {
         computerBarRed.style.width = '100%';
     }
 }
-
+// remet les barres de vie à fond
 resetBar = () => {
     computerBarRed.style.width = '0%';
     playerBarGreen.style.width = '100%';
