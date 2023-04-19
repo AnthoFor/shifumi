@@ -1,16 +1,29 @@
-let humanWinCount = 0;
-let humanLooseCount = 0;
+// LES VARIABLES =>
+let humanWinCount =0;
+let humanLooseCount =0;
 let numbTotalOfGame = 0;
 let shifuArray = ['pierre', 'feuille', 'ciseaux'];
 let humanWinRatio = 0;
 let winEgalOrLoose = '';
 let soundOnOrOff = 1;
+let playerHp = 100;
+let computerHp = 100;
 playerBarGreen.style.width = '100%';
 computerBarRed.style.width = '0%';
 
 // calcul de la hauteur du playzone, et ajustement de la hauteur des barres.
-fromXPlayZone = document.getElementById('insertCompChoose').getBoundingClientRect().top;
-lifeBar.style.top = fromXPlayZone + 4 +'px';
+function ajustElement() {
+    fromXPlayZone = document.getElementById('insertCompChoose').getBoundingClientRect().top;
+    lifeBar.style.top = fromXPlayZone + 4 +'px';
+}
+
+window.addEventListener('resize', () => {
+    ajustElement();
+})
+
+// Ajustage dès le chargement de la page.
+ajustElement();
+
 // fonction nommée de toggleSound ;)
 const toggleSound = () => {
     soundChoice.classList.toggle('soundOff');
@@ -157,17 +170,17 @@ choiceSelect.forEach(element => {
 
         // Check du niveau de vie du joueur ou de l'ordinateur
         setTimeout(() => {
-            if (playerBarGreen.style.width == '0%') {
+            if (playerHp == 0) {
                 finalModal.style.display = 'block';
                 insertContentFinalModal.innerHTML = `<span class="fontSpe">Vous avez perdu, vous aurez peut être plus de 
                 chance la prochaine fois! </span>`;
                 
             }
-            if (computerBarRed.style.width == '100%') {
+            if (computerHp == 0) {
                 finalModal.style.display = 'block';
                 insertContentFinalModal.innerHTML = `<span class="fontSpe">Felicitations! Vous avez battu l'ordinateur!</span>`;
             }
-        }, 1500)  
+        }, 1000)  
         
     });
 });
@@ -225,54 +238,18 @@ closeFinalModal.addEventListener('click', () => {
 })
 
 removeLifeFromPlayer = () => {
-    if (playerBarGreen.style.width == '100%') {
-        playerBarGreen.style.width = '90%';
-    } else if (playerBarGreen.style.width == '90%') {
-        playerBarGreen.style.width = '80%';
-    } else if (playerBarGreen.style.width == '80%') {
-        playerBarGreen.style.width = '70%';
-    } else if (playerBarGreen.style.width == '70%') {
-        playerBarGreen.style.width = '60%';
-    } else if (playerBarGreen.style.width == '60%') {
-        playerBarGreen.style.width = '50%';
-    } else if (playerBarGreen.style.width == '50%') {
-        playerBarGreen.style.width = '40%';
-    } else if (playerBarGreen.style.width == '40%') {
-        playerBarGreen.style.width = '30%';
-    } else if (playerBarGreen.style.width == '30%') {
-        playerBarGreen.style.width = '20%';
-    } else if (playerBarGreen.style.width == '20%') {
-        playerBarGreen.style.width = '10%';
-    } else if (playerBarGreen.style.width == '10%') {
-        playerBarGreen.style.width = '0%';
-    }
+    playerHp -= 10;
+    playerBarGreen.style.width = playerHp + '%';
 }
 
 removeLifeFromComputer = () => {
-    if (computerBarRed.style.width == '0%') {
-        computerBarRed.style.width = '10%';
-    } else if (computerBarRed.style.width == '10%') {
-        computerBarRed.style.width = '20%';
-    } else if (computerBarRed.style.width == '20%') {
-        computerBarRed.style.width = '30%';
-    } else if (computerBarRed.style.width == '30%') {
-        computerBarRed.style.width = '40%';
-    } else if (computerBarRed.style.width == '40%') {
-        computerBarRed.style.width = '50%';
-    } else if (computerBarRed.style.width == '50%') {
-        computerBarRed.style.width = '60%';
-    } else if (computerBarRed.style.width == '60%') {
-        computerBarRed.style.width = '70%';
-    } else if (computerBarRed.style.width == '70%') {
-        computerBarRed.style.width = '80%';
-    } else if (computerBarRed.style.width == '80%') {
-        computerBarRed.style.width = '90%';
-    } else if (computerBarRed.style.width == '90%') {
-        computerBarRed.style.width = '100%';
-    }
+    computerHp -= 10;
+    computerBarRed.style.width = 100 - computerHp + '%';
 }
 // remet les barres de vie à fond
 resetBar = () => {
+    computerHp = 100;
+    playerHp = 100;
     computerBarRed.style.width = '0%';
     playerBarGreen.style.width = '100%';
     finalModal.style.display = 'none';
