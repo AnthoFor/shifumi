@@ -17,12 +17,20 @@ function ajustElement() {
     lifeBar.style.top = fromXPlayZone + 4 +'px';
 }
 
+// Ici je cherche à faire en sorte que l'app s'affiche en entier, sans etre coupé en hauteur.
+function adjustHeight() {
+    let availableHeight = window.innerHeight;
+    document.body.style.height = availableHeight+'px';
+}
+
 window.addEventListener('resize', () => {
     ajustElement();
+    adjustHeight();
 })
 
 // Ajustage dès le chargement de la page.
 ajustElement();
+adjustHeight();
 
 // fonction nommée de toggleSound ;)
 const toggleSound = () => {
