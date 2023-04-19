@@ -224,10 +224,6 @@ closeFinalModal.addEventListener('click', () => {
     resetBar();
 })
 
-// window.addEventListener("DOMContentLoaded", (event) => {
-
-// })
-
 removeLifeFromPlayer = () => {
     if (playerBarGreen.style.width == '100%') {
         playerBarGreen.style.width = '90%';
@@ -251,6 +247,7 @@ removeLifeFromPlayer = () => {
         playerBarGreen.style.width = '0%';
     }
 }
+
 removeLifeFromComputer = () => {
     if (computerBarRed.style.width == '0%') {
         computerBarRed.style.width = '10%';
