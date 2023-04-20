@@ -87,7 +87,7 @@ choiceSelect.forEach(element => {
             winEgalOrLoose = 'Egalite!';
         } else if (choosedByHuman == 'pierre' && choosedOneByComp == 'feuille') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu';
+            winEgalOrLoose = 'Perdu!';
             setTimeout(() => {
                 removeLifeFromPlayer();
             },800);
@@ -120,7 +120,7 @@ choiceSelect.forEach(element => {
             winCount.innerHTML = `Nombre de victoire(s) : ${humanWinCount}`;
         } else if (choosedByHuman == 'feuille' && choosedOneByComp == 'ciseaux') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu';
+            winEgalOrLoose = 'Perdu!';
             setTimeout(() => {
                 removeLifeFromPlayer();
             },800);
@@ -131,7 +131,7 @@ choiceSelect.forEach(element => {
             looseCount.innerHTML = `Nombre de defaite(s) : ${humanLooseCount}`;
         } else if (choosedByHuman == 'ciseaux' && choosedOneByComp == 'pierre') {
             humanLooseCount += 1;
-            winEgalOrLoose = 'Perdu';
+            winEgalOrLoose = 'Perdu!';
             setTimeout(() => {
                 removeLifeFromPlayer();
             },800);
