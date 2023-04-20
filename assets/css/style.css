@@ -266,7 +266,7 @@ main {
 }
 #textSpan {
     transform: scale(0);
-    font-size: 1.8rem;
+    font-size: max(16px, min(28px, calc(1vw * 4)));
 }
 #handsChoice {
     width: 100%;

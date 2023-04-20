@@ -55,10 +55,13 @@
     transition-timing-function: ease-in-out;
 }
 #computerName, #insertUserNameHere {
-    font-size: max(1rem, 0.2rem);
+    font-size: max(8px, min(22px, calc(1vw * 4)));
 }
 #insertUserNameHere {
     float: right;
+}
+#computerName {
+    float: left;
 }
 #resultText {
     text-align: center;
