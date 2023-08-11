@@ -23,14 +23,17 @@ function adjustHeight() {
     document.body.style.height = availableHeight+'px';
 }
 
-window.addEventListener('resize', () => {
-    ajustElement();
-    adjustHeight();
-})
+['resize', 'orientationchange', 'fullscreenchange'].forEach((event) => {
+    window.addEventListener(event, () => {
+        console.log(event);
+        adjustHeight();
+        ajustElement();
+    });
+});
 
 // Ajustage dès le chargement de la page.
-ajustElement();
 adjustHeight();
+ajustElement();
 
 // fonction nommée de toggleSound ;)
 const toggleSound = () => {
