@@ -25,7 +25,6 @@ function adjustHeight() {
 
 ['resize', 'orientationchange', 'fullscreenchange'].forEach((event) => {
     window.addEventListener(event, () => {
-        console.log(event);
         adjustHeight();
         ajustElement();
     });
